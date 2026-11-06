@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import site from '../data/site.json';
+import services from '../data/services.json';
+
+const c = site.contact;
+const mail = (subject: string) => `mailto:${c.email}?subject=${encodeURIComponent(subject)}`;
+const topics = [
+  ...services.map((s) => ({ label: s.title, subject: s.mailSubject })),
+  { label: 'Something else', subject: 'Question via sonaria.ltd' },
+];
+---
+<Base title="Contact" description={`Send Heinz Wagner an email. ${c.replyTime}`}>
+  <section class="wrap section">
+    <PageHeader tag="Contact" title="Get in" intro={`Send me an email. ${c.replyTime}`}>
+      <Fragment slot="accent">touch</Fragment>
+    </PageHeader>
+
+    <div class="grid" style="--min:360px">
+      <div class="quick stack">
+        <span class="mono dark">Quickest</span>
+        <h2 class="h2">Send me an email</h2>
+        <p>Describe your question in a few lines; I tell you whether I can help.</p>
+        <a href={mail('Question via sonaria.ltd')} class="btn btn--dark">{c.email} →</a>
+      </div>
+
+      <div class="card stack" style="gap:20px">
+        <h2 class="h2">Or pick a topic</h2>
+        <p class="muted" style="margin:0">Your email program opens with the subject filled in.</p>
+        <ul class="topics">
+          {topics.map((t) => (
+            <li><a href={mail(t.subject)}><span>{t.label}</span><span aria-hidden="true">→</span></a></li>
+          ))}
+        </ul>
+        <dl class="details">
+          <div><dt class="mono">Email</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd></div>
+          {/* Phone and WhatsApp only show once an own Sonaria number is set in site.json */}
+          {c.phone && <div><dt class="mono">Phone</dt><dd><a href={`tel:${c.phone}`}>{c.phoneDisplay}</a></dd></div>}
+          {c.whatsapp && <div><dt class="mono">WhatsApp</dt><dd><a href={`https://wa.me/${c.whatsapp}`} target="_blank" rel="noopener">{c.whatsappDisplay}</a></dd></div>}
+          <div><dt class="mono">LinkedIn</dt><dd><a href={c.linkedin} target="_blank" rel="noopener">{site.person.name}</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .h2 { font-family: var(--font-display); font-size: 24px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; margin: 0; }
+  .quick { background: var(--accent); color: var(--bg); border-radius: var(--radius); padding: 32px; gap: 16px; }
+  .quick p { margin: 0; color: #2F3320; }
+  .quick .btn { align-self: flex-start; margin-top: auto; }
+  .dark { color: #3D4224; }
+  .topics { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .topics a { display: flex; justify-content: space-between; padding: 14px 2px; border-bottom: 1px solid var(--line); color: var(--text); }
+  .topics a:hover { color: var(--accent); text-decoration: none; }
+  .details { margin: 0; display: grid; gap: 14px; font-size: 15px; }
+  .details div { display: grid; grid-template-columns: 90px 1fr; align-items: baseline; gap: 12px; }
+  .details dd { margin: 0; }
+</style>

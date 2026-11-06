@@ -1,0 +1,28 @@
+{
+  "name": "Sonaria",
+  "url": "https://sonaria.ltd",
+  "tagline": "Salesforce, AI automation, compliance and buy-and-build for European SMEs.",
+  "person": {
+    "name": "Heinz Wagner",
+    "fullTitle": "Drs. Heinz Wagner MBA",
+    "role": "Director",
+    "photo": "/images/heinz-wagner.jpg"
+  },
+  "contact": {
+    "email": "hw@sonaria.ltd",
+    "phone": "",
+    "phoneDisplay": "",
+    "linkedin": "https://www.linkedin.com/in/heinzwagner",
+    "whatsapp": "",
+    "whatsappDisplay": "",
+    "replyTime": "I reply within one working day."
+  },
+  "company": {
+    "legalName": "Sonaria Ltd. (Сонария ЕООД)",
+    "address": "10 Stefan Karadzha Str., fl. 3, 1000 Sofia, Bulgaria",
+    "uic": "203533849",
+    "vat": "BG203533849",
+    "director": "Heinz Wagner",
+    "founded": 2015
+  }
+}

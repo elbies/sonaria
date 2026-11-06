@@ -1,0 +1,14 @@
+---
+// Centered page heading: tag, title (accent part via slot="accent"), optional intro.
+const { tag, title, intro } = Astro.props;
+---
+<div class="center head">
+  <span class="tag">{tag}</span>
+  <h1 class="display">{title} <span class="accent"><slot name="accent" /></span></h1>
+  {intro && <p class="lead">{intro}</p>}
+</div>
+
+<style>
+  .head { gap: 18px; margin-bottom: 56px; }
+  .display { font-size: clamp(40px, 5vw, 64px); }
+</style>

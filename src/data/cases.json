@@ -1,0 +1,29 @@
+[
+  {
+    "client": "Fitness chain",
+    "topic": "Salesforce Agentforce",
+    "title": "A support agent for club members",
+    "teaser": "An Agentforce agent that answers member questions around the clock.",
+    "body": "We built a structured knowledge base on memberships, class schedules and club rules, and connected it to an Agentforce agent that answers member questions around the clock.",
+    "result": "routine member questions are handled by the agent; staff only take the cases it hands over.",
+    "featured": true
+  },
+  {
+    "client": "Financial services franchise",
+    "topic": "Insurance scan application",
+    "title": "One client picture for every adviser",
+    "teaser": "An insurance scan in which advisers build client profiles and monitor risks over time.",
+    "body": "For a franchise chain of financial advisers we developed an insurance scan: an application in which advisers build client profiles and monitor the risks each client runs over time.",
+    "result": "every franchisee works from the same client picture, and risks show up before they become a problem.",
+    "featured": true
+  },
+  {
+    "client": "GPS-tracking software company",
+    "topic": "Compliance",
+    "title": "One compliance basis in 22 EU languages",
+    "teaser": "Security and privacy documentation, retention periods and CE/RED instructions for a fleet-tracking SaaS company.",
+    "body": "For a fleet-tracking SaaS company we rewrote the information security and privacy statement, set retention periods for location data, and prepared CE/RED safety and compliance instructions for its trackers in 22 EU languages.",
+    "result": "one documented compliance basis for customers, dealers and tenders.",
+    "featured": true
+  }
+]

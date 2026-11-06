@@ -1,0 +1,15 @@
+---
+const { href = '/contact/', label = 'Get in touch' } = Astro.props;
+---
+<section class="wrap section">
+  <div class="card cta center">
+    <p class="title"><slot /></p>
+    <a href={href} class="btn btn--arrow">{label}</a>
+  </div>
+</section>
+
+<style>
+  .cta { border-radius: var(--radius-lg); padding: clamp(36px, 5vw, 64px); gap: 26px; }
+  .title { font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; max-width: 720px; }
+  .btn--arrow { background: var(--bg); }
+</style>

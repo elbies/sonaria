@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import Portrait from '../components/Portrait.astro';
+import CtaBand from '../components/CtaBand.astro';
+import site from '../data/site.json';
+import services from '../data/services.json';
+import cases from '../data/cases.json';
+
+const featured = cases.filter((c) => c.featured);
+const steps = [
+  { title: 'A 30-minute call', text: 'You explain the problem; I tell you whether I can help.' },
+  { title: 'A written proposal', text: 'Scope, deliverables, timeline and a fixed price.' },
+  { title: 'The work itself', text: 'Short weekly updates, and something working early on.' },
+  { title: 'Handover', text: 'Documentation and training, so your team can carry on without me.' },
+];
+---
+<Base title="Sonaria" description="Heinz Wagner helps European SMEs get more out of Salesforce, automate routine work with AI, and meet EU requirements such as CE, RED and GDPR.">
+
+  <section class="wrap hero">
+    <div class="stack hero-text">
+      <span class="tag">Independent advisor since {site.company.founded}</span>
+      <h1 class="display">Salesforce, AI automation, compliance and buy-and-build <span class="accent">for European SMEs.</span></h1>
+      <p class="lead">I'm Heinz Wagner. Since 2015 I've helped small and mid-sized companies get more out of Salesforce, automate routine work, and meet EU requirements such as CE, RED and GDPR.</p>
+      <div class="actions">
+        <a href="/contact/" class="btn btn--arrow">Schedule an introduction</a>
+        <a href={`mailto:${site.contact.email}`} class="mail">{site.contact.email}</a>
+      </div>
+    </div>
+    <div class="hero-photo"><Portrait nameCard /></div>
+  </section>
+
+  <section class="section section--light">
+    <div class="wrap stack" style="gap:48px">
+      <div class="center" style="gap:16px">
+        <span class="tag">What I do</span>
+        <h2 class="title" style="max-width:680px">Four disciplines, one advisor who sees how they connect</h2>
+      </div>
+      <div class="grid" style="--min:240px">
+        {services.map((s, i) => (
+          <a href={`/services/#${s.id}`} class="card service">
+            <span class="icon-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="h3">{s.title}</span>
+            <span class="muted">{s.summary}</span>
+            <span class="more">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section stack" style="gap:44px">
+    <div class="split">
+      <div class="stack" style="gap:16px">
+        <span class="tag">Recent projects</span>
+        <h2 class="title">Results, <span class="accent">not reports.</span></h2>
+      </div>
+      <a href="/cases/" class="btn btn--ghost">All cases →</a>
+    </div>
+    <div class="grid" style="--min:340px">
+      {featured.map((c) => (
+        <article class="card stack case">
+          <span class="mono">{c.client} · {c.topic}</span>
+          <p class="teaser">{c.teaser}</p>
+          <div class="case-result">Result: {c.result}</div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="wrap stack" style="gap:48px">
+      <div class="center" style="gap:16px">
+        <span class="tag">Process</span>
+        <h2 class="title">How a project runs</h2>
+      </div>
+      <ol class="grid steps" style="--min:240px">
+        {steps.map((s, i) => (
+          <li class:list={['card', 'stack', 'step', { last: i === steps.length - 1 }]}>
+            <span class="mono">Step {String(i + 1).padStart(2, '0')}</span>
+            <span class="h3">{s.title}</span>
+            <span class="muted">{s.text}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand>Not sure whether your question fits? <span class="accent">Send me a short message</span> and I'll let you know.</CtaBand>
+</Base>
+
+<style>
+  .hero { padding-block: 96px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 56px; align-items: center; }
+  .hero-text { gap: 30px; }
+  .hero-photo { display: flex; justify-content: flex-end; }
+  .actions { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+  .mail { color: var(--text-soft); font-size: 15px; }
+  .service { display: flex; flex-direction: column; gap: 16px; color: var(--light-text); text-decoration: none; transition: border-color .15s; }
+  .service:hover { border-color: var(--light-text); text-decoration: none; }
+  .more { margin-top: auto; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  .split { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .case { gap: 18px; }
+  .teaser { font-family: var(--font-display); font-size: 24px; font-weight: 500; line-height: 1.3; letter-spacing: -.015em; margin: 0; }
+  .case-result { margin-top: auto; border-top: 1px solid var(--line); padding-top: 18px; font-size: 15px; color: var(--accent); }
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .step { gap: 14px; padding: 28px; }
+  .step .mono { color: var(--light-muted); font-size: 12px; }
+  .step.last { background: var(--light-text); border-color: var(--light-text); color: var(--text); }
+  .step.last .mono { color: var(--accent); }
+  .step.last .muted { color: var(--muted); }
+  @media (max-width: 900px) { .hero-photo { justify-content: flex-start; } }
+</style>

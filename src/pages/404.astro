@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found" description="This page does not exist." noindex>
+  <section class="wrap section">
+    <div class="card center box">
+      <span class="tag">404</span>
+      <h1 class="title">Page not found</h1>
+      <p class="muted">The page you are looking for doesn't exist or has moved.</p>
+      <a href="/" class="btn btn--arrow">Back to home</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .box { gap: 20px; padding: 96px 32px; border-radius: var(--radius-lg); }
+  .box p { margin: 0; }
+</style>

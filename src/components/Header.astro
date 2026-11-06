@@ -1,0 +1,38 @@
+---
+import Logo from './Logo.astro';
+
+const nav = [
+  { href: '/services/', label: 'Services' },
+  { href: '/cases/', label: 'Cases' },
+  { href: '/about/', label: 'About' },
+];
+const path = Astro.url.pathname;
+---
+<header class="header">
+  <div class="wrap bar">
+    <a href="/" class="home" aria-label="Sonaria home"><Logo /></a>
+    <nav aria-label="Main">
+      {nav.map((item) => (
+        <a href={item.href} class:list={['link', { active: path.startsWith(item.href.slice(0, -1)) }]}
+           aria-current={path.startsWith(item.href.slice(0, -1)) ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <a href="/contact/" class="btn btn--white" aria-current={path.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header { position: sticky; top: 0; z-index: 10; background: rgba(14, 15, 12, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
+  .bar { padding-block: 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
+  .home:hover { text-decoration: none; }
+  nav { display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; font-size: 15px; }
+  .link { color: var(--text-soft); padding: 4px 0; border-bottom: 1.5px solid transparent; }
+  .link:hover { color: var(--text); text-decoration: none; }
+  .link.active { border-bottom-color: var(--accent); color: var(--text); }
+  @media (max-width: 600px) {
+    .header { position: static; }
+    nav { gap: 10px 20px; }
+    /* Contact is only in the button, so it must stay visible on phones */
+    .btn--white { padding: 8px 14px; }
+  }
+</style>

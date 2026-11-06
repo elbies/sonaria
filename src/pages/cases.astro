@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBand from '../components/CtaBand.astro';
+import cases from '../data/cases.json';
+---
+<Base title="Cases" description="Examples of Salesforce, AI automation and compliance projects for European SMEs, with the result for each.">
+  <section class="wrap section">
+    <PageHeader tag="Cases" title="Work that" intro="Clients are only named with their permission.">
+      <Fragment slot="accent">delivered</Fragment>
+    </PageHeader>
+
+    <div class="stack" style="gap:18px">
+      {cases.map((c) => (
+        <article class="card row">
+          <div class="stack" style="gap:12px">
+            <span class="mono">{c.client} · {c.topic}</span>
+            <h2 class="h2">{c.title}</h2>
+          </div>
+          <div class="stack body">
+            <p>{c.body}</p>
+            <p class="result"><strong>Result:</strong> {c.result}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand>Facing something similar? <span class="accent">Tell me about it.</span></CtaBand>
+</Base>
+
+<style>
+  .row { padding: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 36px; }
+  .h2 { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.2; letter-spacing: -.025em; margin: 0; }
+  .body { gap: 16px; color: var(--text-body); }
+  .body p { margin: 0; }
+  .body .result { margin: 0; color: var(--bg); }
+</style>

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "salesforce",
+    "title": "Salesforce and Agentforce",
+    "summary": "Setting up or cleaning up your Salesforce org, and building Agentforce agents that answer customer questions from your own knowledge base.",
+    "audience": "For companies with 10 to 200 staff that use Salesforce or are about to.",
+    "body": [
+      "Often Salesforce was set up once and never maintained, and the team ends up working in spreadsheets next to it.",
+      "I start with an audit, remove what nobody uses and rebuild the processes that matter. Where it saves real time, I add an Agentforce agent."
+    ],
+    "deliverables": [
+      "An audit and clean-up plan",
+      "Configured objects, flows and reports",
+      "An Agentforce agent on your knowledge base",
+      "Admin documentation and training"
+    ],
+    "mailSubject": "Question about Salesforce / Agentforce"
+  },
+  {
+    "id": "automation",
+    "title": "AI automation",
+    "summary": "Automating intake, triage and reporting, with logging and a person who can step in when needed.",
+    "audience": "For teams that spend hours each week on manual intake, sorting or reporting.",
+    "body": [
+      "We pick one workflow, measure how long it takes now, and automate it. Every step is logged and a person can take over at any point.",
+      "Once it works and the numbers are clear, you decide whether to do the next one."
+    ],
+    "deliverables": [
+      "A workflow analysis with time baseline",
+      "A working automation in your own tools",
+      "Monitoring and a fallback procedure",
+      "A GDPR check on the data involved"
+    ],
+    "mailSubject": "Question about AI automation"
+  },
+  {
+    "id": "compliance",
+    "title": "Compliance",
+    "summary": "CE marking and Radio Equipment Directive files for products, and GDPR documentation for the way you handle personal data.",
+    "audience": "For manufacturers selling in the EU, and any company that processes personal data.",
+    "body": [
+      "CE marking, the Radio Equipment Directive and GDPR are clear on paper but take a lot of work in practice.",
+      "I compare your situation with the rules that apply, then build the file with you, written so that an auditor can follow it."
+    ],
+    "deliverables": [
+      "A gap analysis",
+      "CE / RED technical file and Declaration of Conformity",
+      "Privacy statement, records of processing, DPIA",
+      "A review of cookies and consent"
+    ],
+    "mailSubject": "Question about compliance"
+  },
+  {
+    "id": "buy-and-build",
+    "title": "Buy-and-build",
+    "summary": "Growth through acquisition: defining the platform company, finding and assessing targets, and structuring the deals.",
+    "audience": "For owners and investors who want to grow through acquisitions.",
+    "body": [
+      "Growth through acquisition. We help define the platform company, find and assess targets, and structure the deals.",
+      "We also speed up the strategy by wrapping: acquiring smaller competitors and merging them into the platform, so scale and margin grow faster than they would organically."
+    ],
+    "deliverables": [
+      "A definition of the platform company",
+      "A search and assessment of targets",
+      "Deal structuring",
+      "Wrapping smaller competitors into the platform"
+    ],
+    "mailSubject": "Question about buy-and-build"
+  }
+]

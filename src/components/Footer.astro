@@ -1,0 +1,36 @@
+---
+import Logo from './Logo.astro';
+import site from '../data/site.json';
+const c = site.company;
+---
+<footer class="footer">
+  <div class="wrap inner">
+    <div class="top">
+      <div class="stack about">
+        <Logo />
+        <span>{site.tagline}</span>
+      </div>
+      <nav class="stack links" aria-label="Legal">
+        <a href="/privacy/">Privacy statement</a>
+        <a href="/cookies/">Cookie policy</a>
+        <a href="/terms/">Terms and conditions</a>
+      </nav>
+    </div>
+    <p class="legal">
+      {c.legalName} · Registered office: {c.address} · UIC {c.uic} · VAT {c.vat} · Director: {c.director} ·
+      <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+    </p>
+    <p class="note">This site uses no tracking cookies.</p>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--line-soft); background: var(--bg-deep); color: var(--muted); }
+  .inner { padding-block: 56px 40px; display: flex; flex-direction: column; gap: 32px; }
+  .top { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .about { gap: 12px; max-width: 380px; font-size: 14px; }
+  .links { gap: 10px; font-size: 14px; }
+  .links a, .legal a { color: var(--text-soft); }
+  .legal { font-size: 13px; line-height: 1.7; margin: 0; border-top: 1px solid var(--line-soft); padding-top: 22px; color: #8A8A81; }
+  .note { font-size: 13px; margin: 0; color: var(--faint); }
+</style>

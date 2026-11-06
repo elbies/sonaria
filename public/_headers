@@ -1,0 +1,17 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Keep the pages.dev addresses (production and branch previews) out of search engines.
+# The real domain sonaria.ltd is not affected.
+https://sonaria-o4r.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:branch.sonaria-o4r.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import Portrait from '../components/Portrait.astro';
+import site from '../data/site.json';
+const p = site.person;
+---
+<Base title="About" description="Heinz Wagner leads Sonaria Ltd., founded in Sofia in 2015, and works for small and mid-sized companies across Europe.">
+  <section class="wrap section about">
+    <Portrait />
+    <div class="stack text">
+      <span class="tag">About</span>
+      <h1 class="display">One advisor, <span class="accent">start to finish.</span></h1>
+      <p>Heinz Wagner has been an entrepreneur since 1993. He spent his first decade in the financial sector, in wealth management and real estate. Today he develops software and runs companies in GPS tracking and location data, alongside businesses in e-commerce and fitness. He is also active in buy-and-build: acquiring companies and accelerating growth by wrapping smaller competitors into one platform.</p>
+      <p>Through Sonaria Ltd. in Sofia he brings that experience to small and mid-sized companies across Europe. He works hands-on, at a fixed price, and hands over a result the team can run with.</p>
+      <div class="card sig">
+        <span class="stack"><strong>{p.fullTitle}</strong><span class="muted small">{p.role}</span></span>
+        {site.contact.linkedin
+          ? <a href={site.contact.linkedin} class="mono accent" rel="me noopener" target="_blank">LinkedIn →</a>
+          : <span class="mono">[LinkedIn link]</span>}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 64px; align-items: center; }
+  .text { gap: 22px; max-width: 600px; }
+  .display { font-size: clamp(40px, 5vw, 64px); }
+  .text > p { font-size: 18px; line-height: 1.65; margin: 0; color: var(--text-body); text-wrap: pretty; }
+  .sig { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .small { font-size: 14px; }
+</style>

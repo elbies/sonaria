@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBand from '../components/CtaBand.astro';
+import services from '../data/services.json';
+---
+<Base title="Services" description="Salesforce and Agentforce, AI automation, and CE / RED / GDPR compliance for small and mid-sized European companies.">
+  <section class="wrap section">
+    <PageHeader tag="Services" title="What I can do">
+      <Fragment slot="accent">for you</Fragment>
+    </PageHeader>
+
+    <div class="stack" style="gap:18px">
+      {services.map((s, i) => (
+        <article id={s.id} class="card row">
+          <div class="stack" style="gap:14px">
+            <span class="icon-num">{String(i + 1).padStart(2, '0')}</span>
+            <h2 class="h2">{s.title}</h2>
+            <p class="muted small">{s.audience}</p>
+          </div>
+          <div class="stack body">
+            {s.body.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="get">
+            <div class="mono accent label">You get</div>
+            <ul class="list">{s.deliverables.map((d) => <li>{d}</li>)}</ul>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="muted center note">Existing clients can also get support with CRM campaigns and reporting.</p>
+  </section>
+
+  <CtaBand label="Schedule an introduction">Want to know which of these fits your situation? <span class="accent">Let's talk for 30 minutes.</span></CtaBand>
+</Base>
+
+<style>
+  .row { padding: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 36px; scroll-margin-top: 100px; }
+  .h2 { font-family: var(--font-display); font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -.025em; margin: 0; }
+  .small { font-size: 14px; margin: 0; }
+  .body { gap: 14px; color: var(--text-body); }
+  .body p { margin: 0; }
+  .get { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 22px; font-size: 15px; line-height: 1.5; }
+  .label { margin-bottom: 14px; color: var(--accent); }
+  .note { margin-top: 28px; font-size: 15px; }
+</style>
