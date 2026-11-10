@@ -1,0 +1,5 @@
+# Old WordPress URLs (sonaria.ltd before Nov 2026) to the new pages
+/diensten   /services/  301
+/diensten/  /services/  301
+/over       /about/     301
+/over/      /about/     301
