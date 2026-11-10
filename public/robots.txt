@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sonaria.ltd/sitemap-index.xml
+Sitemap: https://www.sonaria.ltd/sitemap-index.xml
